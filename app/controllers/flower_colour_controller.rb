@@ -4,6 +4,6 @@ class FlowerColourController < ApplicationController
   end
 
   def show
-    @colour = FlowerColour.find(:id)
+    @colour = FlowerColour.find(params[:id])
   end
 end

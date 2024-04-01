@@ -1,2 +1,8 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<% content_for(:html_title) {raw @product.flower_type.type_name} %>
+<br>
+
+<p><strong>Description: </strong></p>
+<p><%= @product.description %></p>
+
+
+<a href="/products"><b>Return to all products</b></a>

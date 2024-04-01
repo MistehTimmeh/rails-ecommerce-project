@@ -22,15 +22,14 @@ flowers = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 
 flowers.each do |flower|
     if flower["color one"] != "NONE"
-
         color_one = FlowerColour.find_or_create_by(colour_name: flower["color one"])
     end
-    if flower["color two"] != "NONE"
 
+    if flower["color two"] != "NONE"
         color_two = FlowerColour.find_or_create_by(colour_name: flower["color two"])
     end
-    if flower["color three"] != "NONE"
 
+    if flower["color three"] != "NONE"
         color_three = FlowerColour.find_or_create_by(colour_name: flower["color three"])
     end
 

@@ -8,9 +8,17 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/menu" %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-1">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
+      </div>
+      <br>
+      <%= yield %>
+    </section>
   </body>
 </html>

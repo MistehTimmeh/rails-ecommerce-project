@@ -4,6 +4,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.find(:id)
+    @product = Product.find(params[:id])
   end
 end

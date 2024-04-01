@@ -1,2 +1,11 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<p>All flowers:</p>
+<br>
+<div class="columns is-multiline">
+    <% @products.each do |f| %>
+    <div class="column is-one-quarter">
+        <div>
+        <%= link_to "Flower", f %>
+        </div>
+    </div>
+    <% end %>
+</div>
