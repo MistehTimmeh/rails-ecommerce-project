@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'flower_type/index'
+  get 'flower_type/show'
+  get 'flower_colour/index'
+  get 'flower_colour/show'
+  get 'products/index'
+  get 'products/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
