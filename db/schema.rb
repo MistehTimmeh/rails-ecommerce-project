@@ -49,25 +49,36 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_004926) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_products", force: :cascade do |t|
+  create_table "order_products", primary_key: ["product_id", "order_id"], force: :cascade do |t|
     t.integer "product_quantity"
     t.decimal "product_total_price"
+    t.integer "product_id", null: false
+    t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
     t.decimal "order_price"
     t.string "stripe_payment_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.decimal "item_price"
+    t.text "description"
+    t.integer "flower_colour_id", null: false
+    t.integer "flower_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["flower_colour_id"], name: "index_products_on_flower_colour_id"
+    t.index ["flower_type_id"], name: "index_products_on_flower_type_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -82,8 +93,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_004926) do
     t.text "username"
     t.text "password"
     t.boolean "is_admin"
+    t.integer "province_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_users_on_province_id"
   end
 
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
+  add_foreign_key "orders", "users"
+  add_foreign_key "products", "flower_colours"
+  add_foreign_key "products", "flower_types"
+  add_foreign_key "users", "provinces"
 end
