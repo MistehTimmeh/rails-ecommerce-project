@@ -1,6 +1,10 @@
 class FlowerType < ApplicationRecord
     has_many :products
 
+    def display_name
+        self.type_name # or whatever column you want
+    end
+
     def self.ransackable_associations(auth_object = nil)
         ["products"]
     end

@@ -2,6 +2,8 @@ class Product < ApplicationRecord
     belongs_to :flower_colour
     belongs_to :flower_type
 
+    has_one_attached :image
+
     has_many :order_products
     has_many :orders, through: :order_products
 
