@@ -4,6 +4,8 @@ class FlowerColour < ApplicationRecord
     validates :colour_name, presence: true
     validates :colour_name, uniqueness: true
 
+    paginates_per 20
+
     def display_name
         self.colour_name # or whatever column you want
     end
