@@ -5,7 +5,11 @@
     <div class="column is-one-quarter">
         <div>
             <%= link_to "#{f.flower_colour.colour_name} #{f.flower_type.type_name}".titleize, f %>
+            <br>
             <% if f.image.present? %>
+                <%= link_to (image_tag f.image, :style => "height: 50%; width: 50%;"), f %>
+            <% end %>
+            <p>Price: <%= number_to_currency(f.item_price) %></p>
         </div>
     </div>
     <% end %>

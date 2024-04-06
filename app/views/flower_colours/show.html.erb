@@ -1,4 +1,4 @@
-<% content_for(:html_title) {raw @colour.colour_name.capitalize} %>
+<% content_for(:html_title) {raw "#{@colour.colour_name.capitalize} Flowers"} %>
 <br>
 
 <div class="columns is-multiline">
@@ -6,6 +6,11 @@
         <div class="column is-one-quarter">
             <div>
                 <%= link_to "#{p.flower_colour.colour_name} #{p.flower_type.type_name}".titleize, p %>
+                <br>
+                <% if p.image.present? %>
+                    <%= link_to (image_tag p.image, :style => "height: 50%; width: 50%;"), p %>
+                <% end %>
+                <p>Price: <%= number_to_currency(p.item_price) %></p>
             </div>
         </div>
     <% end %>

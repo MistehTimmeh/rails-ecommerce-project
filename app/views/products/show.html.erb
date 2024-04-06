@@ -1,16 +1,29 @@
 <% content_for(:html_title) {raw @product.flower_type.type_name} %>
-<br>
 
 <% if @product.image.present? %>
-    <div class="card-image">
-        <figure class="image">
-            <%= image_tag @product.image %>
-        </figure>
+<div class="columns is-multiline">
+    <div class="column is-one-half">
+        <div class="card-image">
+            <figure class="image">
+                <%= image_tag @product.image, :style => "height: 80%; width: 80%; display: block; margin-left: auto; margin-right: auto;" %>
+            </figure>
+        </div>
     </div>
+    <div class="column is-one-half">
+        <h1 class="title"><%= "#{@product.flower_colour.colour_name} #{@product.flower_type.type_name}".titleize %></h1>
+        <h2 class="subtitle"><%= number_to_currency(@product.item_price) %></h2>
+        <p>Flower Type: <%= link_to @product.flower_type.type_name.titleize, @product.flower_type %></p>
+        <br>
+        <p>Flower Colour: <%= link_to @product.flower_colour.colour_name.titleize, @product.flower_colour %></p>
+        <br>
+        <p><strong>Description: </strong></p>
+        <p><%= @product.description %></p>
+        <br>
+        <button>Add to cart</button>
+    </div>
+</div>
 <% end %>
 
-<p><strong>Description: </strong></p>
-<p><%= @product.description %></p>
 
 
 <a href="/products"><b>Return to all products</b></a>

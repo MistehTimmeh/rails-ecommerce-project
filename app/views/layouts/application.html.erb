@@ -15,9 +15,8 @@
     <%= render "layouts/menu" %>
     <section class="section">
       <div class="container">
-        <h1 class="title is-1">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
+        <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
       </div>
-      <br>
       <%= yield %>
     </section>
   </body>
