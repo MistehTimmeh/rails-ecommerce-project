@@ -1,4 +1,4 @@
-class FlowerColourController < ApplicationController
+class FlowerColoursController < ApplicationController
   def index
     @colours = FlowerColour.all
   end

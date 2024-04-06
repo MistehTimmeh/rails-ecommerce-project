@@ -8,7 +8,7 @@ ActiveAdmin.register Product do
   # Uncomment all parameters which should be permitted for assignment
   #
   # permit_params :item_price
-  permit_params :item_price, :description, :image
+  permit_params :item_price, :description, :image, :flower_colour_id, :flower_type_id
   #
   # or
   #
@@ -27,5 +27,5 @@ ActiveAdmin.register Product do
     f.actions
   end
 
-  
+
 end

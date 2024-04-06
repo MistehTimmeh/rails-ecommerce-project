@@ -1,0 +1,11 @@
+<p>All Types of flowers:<p>
+<br>
+<div class="columns is-multiline">
+    <% @colours.each do |c| %>
+    <div class="column is-one-quarter">
+        <div>
+        <%= link_to c.colour_name.capitalize, c %>
+        </div>
+    </div>
+    <% end %>
+</div>

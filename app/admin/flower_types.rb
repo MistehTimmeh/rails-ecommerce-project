@@ -5,7 +5,7 @@ ActiveAdmin.register FlowerType do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :type_name
+  permit_params :type_name
   #
   # or
   #

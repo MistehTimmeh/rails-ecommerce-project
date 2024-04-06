@@ -1,6 +1,9 @@
 class FlowerType < ApplicationRecord
     has_many :products
 
+    validates :type_name, presence: true
+    validates :type_name, uniqueness: true
+
     def display_name
         self.type_name # or whatever column you want
     end

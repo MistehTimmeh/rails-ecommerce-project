@@ -5,7 +5,7 @@ ActiveAdmin.register FlowerColour do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :colour_name
+  permit_params :colour_name
   #
   # or
   #

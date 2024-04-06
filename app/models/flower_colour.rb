@@ -1,6 +1,9 @@
 class FlowerColour < ApplicationRecord
     has_many :products
 
+    validates :colour_name, presence: true
+    validates :colour_name, uniqueness: true
+
     def display_name
         self.colour_name # or whatever column you want
     end

@@ -1,0 +1,11 @@
+<p>All Types of flowers:<p>
+<br>
+<div class="columns is-multiline">
+    <% @types.each do |t| %>
+    <div class="column is-one-quarter">
+        <div>
+        <%= link_to t.type_name, t %>
+        </div>
+    </div>
+    <% end %>
+</div>
