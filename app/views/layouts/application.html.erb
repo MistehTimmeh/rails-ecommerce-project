@@ -17,6 +17,12 @@
       <div class="container">
         <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
       </div>
+      <%= debug session[:shopping_cart] %>
+      <% if flash[:notice] %>
+        <p>
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
       <%= yield %>
     </section>
   </body>

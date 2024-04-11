@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :flower_types, only: [:index, :show]
   resources :flower_colours, only: [:index, :show]
   resources :products, only: [:index, :show]
+  resources :cart, only: [:create, :destroy]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
