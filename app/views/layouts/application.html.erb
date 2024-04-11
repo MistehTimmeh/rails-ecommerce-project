@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src = "https:/js.stripe.com/v3"></script>
   </head>
 
   <body>
@@ -17,6 +18,13 @@
       <div class="container">
         <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
       </div>
+      <nav>
+         <%= link_to image_tag("shopping_cart.png", width: 100), root_path%>
+         <ul>
+          <li>
+          </li>
+         </ul>
+      </nav>
       <%= debug session[:shopping_cart] %>
       <% if flash[:notice] %>
         <p>
@@ -25,5 +33,24 @@
       <% end %>
       <%= yield %>
     </section>
+    <footer>
+      <details>
+        <summary>
+          Cart
+          <% if cart.present?%>
+          <sup><%= cart.size %></sup>
+          <% end %>
+        </summary>
+        <% if cart.present?%>
+          <ul>
+            <% cart.each do |p| %>
+              <li>
+                <%= "#{p.flower_colour.colour_name} #{p.flower_type.type_name}"%><%= button_to '-', cart_path(p), method: :delete %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </details>
+    </footer>
   </body>
 </html>
