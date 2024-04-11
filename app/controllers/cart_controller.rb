@@ -19,4 +19,8 @@ class CartController < ApplicationController
         flash[:notice] = "Removed #{product.flower_colour.colour_name} #{product.flower_type.type_name} from cart."
         redirect_to root_path
     end
+
+    def update_quantity
+
+    end
 end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/sign_up'
+  get 'users/login'
+  get 'sign_up/login'
   resources :flower_types, only: [:index, :show]
   resources :flower_colours, only: [:index, :show]
   resources :products, only: [:index, :show]
