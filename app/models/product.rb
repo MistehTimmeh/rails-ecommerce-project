@@ -9,6 +9,8 @@ class Product < ApplicationRecord
     has_many :order_products
     has_many :orders, through: :order_products
 
+    paginates_per 20
+
     def self.ransackable_attributes(auth_object = nil)
         ["created_at", "id", "id_value", "item_price", "updated_at"]
       end

@@ -4,6 +4,8 @@ class FlowerType < ApplicationRecord
     validates :type_name, presence: true
     validates :type_name, uniqueness: true
 
+    paginates_per 20
+
     def display_name
         self.type_name # or whatever column you want
     end

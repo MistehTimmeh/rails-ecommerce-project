@@ -1,6 +1,7 @@
 class FlowerTypesController < ApplicationController
   def index
-    @types = FlowerType.all
+    #@types = FlowerType.all
+    @types = FlowerType.order(:type_name).page params[:page]
   end
 
   def show

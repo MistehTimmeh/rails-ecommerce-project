@@ -1,4 +1,4 @@
-<p>All Types of flowers:<p>
+<p>All Colours of flowers:<p>
 <br>
 <div class="columns is-multiline">
     <% @colours.each do |c| %>
@@ -8,4 +8,7 @@
         </div>
     </div>
     <% end %>
+</div>
+<div class="container is-flex is-justify-content-center">
+    <%= paginate @colours %>
 </div>
