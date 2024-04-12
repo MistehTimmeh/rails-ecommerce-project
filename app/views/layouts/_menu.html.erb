@@ -1,4 +1,9 @@
 <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="" alt="Main logo">
+        </a>
+    </div>
     <div class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="/">Home</a>
@@ -6,6 +11,23 @@
             <a class="navbar-item" href="/products">All Flowers</a>
             <a class="navbar-item" href="/flower_colours">Flowers by Colour</a>
             <a class="navbar-item" href="/flower_types">Flowers by Type</a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button" href="/cart">
+                        🛒 Cart <% if cart.present? %>
+                        <sup><%= cart.size %></sup>
+                        <% end %>
+                    </a>
+                    <a class="button is-primary">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

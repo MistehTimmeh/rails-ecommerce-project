@@ -1,0 +1,18 @@
+<h1 class="is-title">Your Shopping Cart</h1>
+
+<% if cart.present? %>
+    <div class="columns">
+        <div class="column is-two-thirds">
+            <% cart.each do |p| %>
+                <section class="section">
+                    <h1 class="title"><%= "#{p.flower_colour.colour_name} #{p.flower_type.type_name}" %></h1>
+                </section>
+            <% end %>
+        </div>
+        <div class="column is-one-third">
+            <p>This will be the subtotal and purchase section.</p>
+        </div>
+    </div>
+<% else %>
+    <p>There are no items in the cart currently. Feel free to add some!</p>
+<% end %>
