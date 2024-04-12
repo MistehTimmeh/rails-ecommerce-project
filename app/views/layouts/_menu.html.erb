@@ -18,12 +18,16 @@
                         <sup><%= cart.size %></sup>
                         <% end %>
                     </a>
-                    <a class="button is-primary" href="/users/sign_up">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light" href="/users/login">
-                        Log in
-                    </a>
+                    <% if user_signed_in? %>
+                        <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+                    <% else %>
+                        <a class="button is-primary" href="/users/sign_up">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="/users/sign_in">
+                            Log in
+                        </a>
+                    <% end %>
                 </div>
             </div>
         </div>
