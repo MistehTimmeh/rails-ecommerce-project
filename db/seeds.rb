@@ -64,6 +64,11 @@ flowers.each do |flower|
 
 
 end
-
+provinces =  ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"]
+shortcodes = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
+taxes = [0.05, 0.12, 0.12, 0.15, 0.15, 0.05, 0.15, 0.05, 0.13, 0.15, 0.14975, 0.11, 0.05 ]
+provinces.each.with_index do |province, index|
+    Province.create!(province_name: province, province_shortcode: shortcodes[index], province_taxes: taxes[index])
+end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
-  #belongs_to :province
+  belongs_to :province
 
   validates :password, presence: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }

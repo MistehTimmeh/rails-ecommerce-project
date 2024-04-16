@@ -21,6 +21,26 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :province_id %><br />
+    <%= f.select :province_id, [["Alberta", 1], ["British Columbia", 2], ["Manitoba", 3], ["New Brunswick", 4], ["Newfoundland and Labrador", 5], ["Northwest Territories", 6], ["Nova Scotia", 7], ["Nunavut", 8], ["Ontario", 9], ["Prince Edward Island", 10], ["Quebec", 11], ["Saskatchewan", 12], ["Yukon", 13]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

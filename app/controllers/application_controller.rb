@@ -1,9 +1,18 @@
 class ApplicationController < ActionController::Base
 
     #makes stuff happen first
+    before_action :configure_permitted_parameters, if:  :devise_controller?
     before_action :initialize_session
 
     helper_method :cart
+
+    protected
+
+      def configure_permitted_parameters
+
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:province_id, :address, :city, :postal_code])
+
+      end
 
     private
     def initialize_session
