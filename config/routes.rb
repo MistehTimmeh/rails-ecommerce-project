@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'users/sign_up'
+  get 'users/login'
+  get 'sign_up/login'
   resources :flower_types, only: [:index, :show]
   resources :flower_colours, only: [:index, :show]
   resources :products, only: [:index, :show]
@@ -13,5 +17,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "products#index"
+  root to: "products#index"
 end

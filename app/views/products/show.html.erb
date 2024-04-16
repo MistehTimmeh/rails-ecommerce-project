@@ -1,14 +1,15 @@
 <% content_for(:html_title) {raw @product.flower_type.type_name} %>
 
-<% if @product.image.present? %>
 <div class="columns is-multiline">
-    <div class="column is-one-half">
-        <div class="card-image">
-            <figure class="image">
-                <%= image_tag @product.image, :style => "height: 80%; width: 80%; display: block; margin-left: auto; margin-right: auto;" %>
-            </figure>
+    <% if @product.image.present? %>
+        <div class="column is-one-half">
+            <div class="card-image">
+                <figure class="image">
+                    <%= image_tag @product.image, :style => "height: 80%; width: 80%; display: block; margin-left: auto; margin-right: auto;" %>
+                </figure>
+            </div>
         </div>
-    </div>
+    <% end %>
     <div class="column is-one-half">
         <h1 class="title"><%= "#{@product.flower_colour.colour_name} #{@product.flower_type.type_name}".titleize %></h1>
         <h2 class="subtitle"><%= number_to_currency(@product.item_price) %></h2>
@@ -22,7 +23,6 @@
         <button>Add to cart</button>
     </div>
 </div>
-<% end %>
 
 
 

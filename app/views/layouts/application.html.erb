@@ -14,6 +14,7 @@
 
   <body>
     <%= render "layouts/menu" %>
+    <%= debug cart %>
     <section class="section">
       <div class="container">
         <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
@@ -23,6 +24,8 @@
           <%= flash[:notice] %>
         </p>
       <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </section>
     <footer>
