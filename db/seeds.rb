@@ -39,8 +39,8 @@ flowers.each do |flower|
         product_one = Product.create(
             flower_colour_id:               color_one.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color one"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color one"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
     end
 
@@ -48,8 +48,8 @@ flowers.each do |flower|
         product_two = Product.create(
             flower_colour_id:               color_two.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color two"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color two"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
     end
 
@@ -57,8 +57,8 @@ flowers.each do |flower|
         product_three = Product.create(
             flower_colour_id:               color_three.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color three"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color three"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
     end
 

@@ -10,7 +10,7 @@
                 <% if p.image.present? %>
                     <%= link_to (image_tag p.image, :style => "height: 50%; width: 50%;"), p %>
                 <% end %>
-                <p>Price: <%= number_to_currency(p.item_price) %></p>
+                <p>Price: <%= number_to_currency(p.price_cents) %></p>
             </div>
         </div>
     <% end %>

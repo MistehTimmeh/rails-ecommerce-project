@@ -9,7 +9,7 @@
             <% if f.image.present? %>
                 <%= link_to (image_tag f.image, :style => "height: 50%; width: 50%;"), f %>
             <% end %>
-            <p>Price: <%= number_to_currency(f.item_price) %></p>
+            <p>Price: <%= number_to_currency(f.price_cents / 100) %></p>
             <% if cart.include?(f) %>
                 <%= button_to cart_path(f), method: :delete do %>
                     Remove from cart
@@ -19,6 +19,10 @@
                     <%= hidden_field_tag(:id, f.id) %>
                     <%= button_tag "Add to cart" %>
                 <% end %>
+            <% end %>
+            <%= form_with url: checkout_create_path, remote: true, data: { turbo: false } do %>
+                <%= hidden_field_tag(:product_id, f.id) %>
+                <%= button_tag 'Buy Now' %>
             <% end %>
         </div>
     </div>

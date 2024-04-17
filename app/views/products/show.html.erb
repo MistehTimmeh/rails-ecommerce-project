@@ -12,7 +12,7 @@
     <% end %>
     <div class="column is-one-half">
         <h1 class="title"><%= "#{@product.flower_colour.colour_name} #{@product.flower_type.type_name}".titleize %></h1>
-        <h2 class="subtitle"><%= number_to_currency(@product.item_price) %></h2>
+        <h2 class="subtitle"><%= number_to_currency(@product.price_cents / 100) %></h2>
         <p>Flower Type: <%= link_to @product.flower_type.type_name.titleize, @product.flower_type %></p>
         <br>
         <p>Flower Colour: <%= link_to @product.flower_colour.colour_name.titleize, @product.flower_colour %></p>
