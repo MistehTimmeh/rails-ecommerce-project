@@ -66,8 +66,8 @@ flowers.each do |flower|
 end
 provinces =  ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"]
 shortcodes = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
-pst_rates = [0, 0.07, 0.07, 0, 0, 0, 0, 0, 0, 0, 0.9975, 0.06, 0]
-gst_rates = [0.05, 0.05, 0.05, 0, 0, 0.05, 0, 0.05, 0, 0, 0.5, 0.05, 0.05]
+pst_rates = [0, 0.07, 0.07, 0, 0, 0, 0, 0, 0, 0, 0.09975, 0.06, 0]
+gst_rates = [0.05, 0.05, 0.05, 0, 0, 0.05, 0, 0.05, 0, 0, 0.05, 0.05, 0.05]
 hst_rates = [0, 0, 0, 0.15, 0.15, 0, 0.15, 0, 0.13, 0.15, 0, 0, 0]
 provinces.each.with_index do |province, index|
     Province.create!(province_name: province, province_shortcode: shortcodes[index], pst_rate: pst_rates[index], gst_rate: gst_rates[index], hst_rate: hst_rates[index])
