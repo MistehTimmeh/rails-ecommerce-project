@@ -1,3 +1,7 @@
 <p>Payment Successful</p>
 
+<% @session.each do |test|%>
+<%= test %>
+<% end %>
+
 <%= debug @session %>

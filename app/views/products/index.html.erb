@@ -20,10 +20,6 @@
                     <%= button_tag "Add to cart" %>
                 <% end %>
             <% end %>
-            <%= form_with url: checkout_create_path, remote: true, data: { turbo: false } do %>
-                <%= hidden_field_tag(:product_id, f.id) %>
-                <%= button_tag 'Buy Now' %>
-            <% end %>
         </div>
     </div>
     <% end %>
