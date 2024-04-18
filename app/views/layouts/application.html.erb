@@ -14,11 +14,8 @@
 
   <body>
     <%= render "layouts/menu" %>
-    <%= debug cart %>
     <section class="section">
-      <div class="container">
-        <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
-      </div>
+      <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
       <% if flash[:notice] %>
         <p>
           <%= flash[:notice] %>
@@ -29,23 +26,6 @@
       <%= yield %>
     </section>
     <footer>
-      <details>
-        <summary>
-          Cart
-          <% if cart.present?%>
-          <sup><%= cart.size %></sup>
-          <% end %>
-        </summary>
-        <% if cart.present?%>
-          <ul>
-            <% cart.each do |p| %>
-              <li>
-                <%= "#{p.flower_colour.colour_name} #{p.flower_type.type_name}"%><%= button_to '-', cart_path(p), method: :delete %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </details>
     </footer>
   </body>
 </html>

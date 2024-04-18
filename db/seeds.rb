@@ -39,36 +39,50 @@ flowers.each do |flower|
         product_one = Product.create(
             flower_colour_id:               color_one.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color one"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color one"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_one = URI.encode_www_form_component([product_one.flower_colour.colour_name, product_one.flower_type.type_name].join(","))
+        #downloaded_image_one = URI.open("https://source.unsplash.com/400x400/?#{query_one}")
+        #product_one.image.attach(io:downloaded_image_one, filename: "m-#{[product_one.flower_colour.colour_name, product_one.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
     if color_two && color_two.valid? && type && type.valid?
         product_two = Product.create(
             flower_colour_id:               color_two.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color two"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color two"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_two = URI.encode_www_form_component([product_two.flower_colour.colour_name, product_two.flower_type.type_name].join(","))
+        #downloaded_image_two = URI.open("https://source.unsplash.com/400x400/?#{query_two}")
+        #product_two.image.attach(io:downloaded_image_two, filename: "m-#{[product_two.flower_colour.colour_name, product_two.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
     if color_three && color_three.valid? && type && type.valid?
         product_three = Product.create(
             flower_colour_id:               color_three.id,
             flower_type_id:                 type.id,
-            item_price:                     15,
-            description: "This #{flower["color three"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} and is used to a #{flower["climate"]} climate.",
+            price_cents:                     1500.to_i,
+            description: "This #{flower["color three"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_three = URI.encode_www_form_component([product_three.flower_colour.colour_name, product_three.flower_type.type_name].join(","))
+        #downloaded_image_three = URI.open("https://source.unsplash.com/400x400/?#{query_three}")
+        #product_three.image.attach(io:downloaded_image_three, filename: "m-#{[product_three.flower_colour.colour_name, product_three.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
 
 end
 provinces =  ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon"]
 shortcodes = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
-taxes = [0.05, 0.12, 0.12, 0.15, 0.15, 0.05, 0.15, 0.05, 0.13, 0.15, 0.14975, 0.11, 0.05 ]
+pst_rates = [0, 0.07, 0.07, 0, 0, 0, 0, 0, 0, 0, 0.09975, 0.06, 0]
+gst_rates = [0.05, 0.05, 0.05, 0, 0, 0.05, 0, 0.05, 0, 0, 0.05, 0.05, 0.05]
+hst_rates = [0, 0, 0, 0.15, 0.15, 0, 0.15, 0, 0.13, 0.15, 0, 0, 0]
 provinces.each.with_index do |province, index|
-    Province.create!(province_name: province, province_shortcode: shortcodes[index], province_taxes: taxes[index])
+    Province.create!(province_name: province, province_shortcode: shortcodes[index], pst_rate: pst_rates[index], gst_rate: gst_rates[index], hst_rate: hst_rates[index])
 end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -99,7 +99,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_11_225302) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.decimal "item_price"
+    t.integer "price_cents"
     t.text "description"
     t.integer "flower_colour_id", null: false
     t.integer "flower_type_id", null: false
@@ -112,7 +112,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_11_225302) do
   create_table "provinces", force: :cascade do |t|
     t.string "province_name"
     t.string "province_shortcode"
-    t.decimal "province_taxes"
+    t.decimal "hst_rate"
+    t.decimal "pst_rate"
+    t.decimal "gst_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

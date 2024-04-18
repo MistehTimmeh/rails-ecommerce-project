@@ -19,6 +19,9 @@
                         <% end %>
                     </a>
                     <% if user_signed_in? %>
+                        <a class="button" href="/users/user_page">
+                            Your Account
+                        </a>
                         <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
                     <% else %>
                         <a class="button is-primary" href="/users/sign_up">

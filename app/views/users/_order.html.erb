@@ -1,0 +1,10 @@
+<p>Order Date: <%= order.order_date %></p><br />
+<p>Order Price: <%= number_to_currency(order.order_price / 100) %></p><br />
+<p>Items in order:</p>
+<div class="columns is-multiline">
+<% order.order_products.each do |order_product|%>
+    <%= render partial: 'order_product',
+            object: order_product,
+            locals: { show_link: false } %>
+<% end %>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'users/user_page'
   get 'users/sign_up'
   get 'users/login'
   get 'sign_up/login'
@@ -7,6 +8,12 @@ Rails.application.routes.draw do
   resources :flower_colours, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :cart, only: [:create, :destroy, :index]
+
+  scope "/checkout" do
+    post "create", to: "checkout#create", as: "checkout_create"
+    get "success", to: "checkout#success", as: "checkout_success"
+    get "cancel", to: "checkout#cancel", as: "checkout_cancel"
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
