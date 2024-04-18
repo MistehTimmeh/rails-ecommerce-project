@@ -1,4 +1,4 @@
-<h1 class="is-title">Your Shopping Cart</h1>
+<% content_for(:html_title) {"Your Cart: "}%>
 
 <% if cart.present? %>
     <div class="columns">
@@ -15,7 +15,6 @@
         <div class="column is-one-third">
             <section class="section">
                 <h2>Subtotal (<%= pluralize cart.size, "item" %>): <%= number_to_currency(@total / 100) %></h2>
-                <p>Button for checkout here.</p>
                 <%= form_with url: checkout_create_path, remote: true, data: { turbo: false } do %>
                     <%= hidden_field_tag(:shopping_cart, session[:shopping_cart]) %>
                     <%= button_tag 'Buy Now' %>

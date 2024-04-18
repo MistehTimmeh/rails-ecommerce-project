@@ -1,7 +1,12 @@
-<p>Payment Successful</p>
+<% content_for(:html_title) {"Your Order: "}%>
+<h1>Your order was succesfully completed! Thank you!</h1><br />
 
-<% @session.each do |test|%>
-<%= test %>
+
+<% @user_cart.each do |p| %>
+    <section class="section">
+        <h1 class="title"><%= "#{p.flower_colour.colour_name.capitalize} #{p.flower_type.type_name}" %></h1>
+        <p><%= p.description %></p>
+        <p><b>Price:</b> <%= number_to_currency(p.price_cents / 100) %></p>
+    </section>
 <% end %>
-
-<%= debug @session %>
+<h2>Order Total: <%= number_to_currency(@session[:amount_total] / 100) %></h2>

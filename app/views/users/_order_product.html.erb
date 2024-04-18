@@ -1,0 +1,5 @@
+<div class="column is-one-fifth">
+    <p>Item name: <%= "#{order_product.product.flower_colour.colour_name} #{order_product.product.flower_type.type_name}".titleize %></p>
+    <p>Item price: <%= number_to_currency(order_product.product_total_price / 100) %></p>
+    <p>Item quantity: <%= order_product.product_quantity%></p>
+</div><br />

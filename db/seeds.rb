@@ -42,6 +42,10 @@ flowers.each do |flower|
             price_cents:                     1500.to_i,
             description: "This #{flower["color one"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_one = URI.encode_www_form_component([product_one.flower_colour.colour_name, product_one.flower_type.type_name].join(","))
+        #downloaded_image_one = URI.open("https://source.unsplash.com/400x400/?#{query_one}")
+        #product_one.image.attach(io:downloaded_image_one, filename: "m-#{[product_one.flower_colour.colour_name, product_one.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
     if color_two && color_two.valid? && type && type.valid?
@@ -51,6 +55,10 @@ flowers.each do |flower|
             price_cents:                     1500.to_i,
             description: "This #{flower["color two"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_two = URI.encode_www_form_component([product_two.flower_colour.colour_name, product_two.flower_type.type_name].join(","))
+        #downloaded_image_two = URI.open("https://source.unsplash.com/400x400/?#{query_two}")
+        #product_two.image.attach(io:downloaded_image_two, filename: "m-#{[product_two.flower_colour.colour_name, product_two.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
     if color_three && color_three.valid? && type && type.valid?
@@ -60,6 +68,10 @@ flowers.each do |flower|
             price_cents:                     1500.to_i,
             description: "This #{flower["color three"]} #{flower["name"]} is native to #{flower["place of origin"]}, can grow to a height of #{flower["height (cm)"]} centimeters and is used to a #{flower["climate"]} climate.",
         )
+        #query_three = URI.encode_www_form_component([product_three.flower_colour.colour_name, product_three.flower_type.type_name].join(","))
+        #downloaded_image_three = URI.open("https://source.unsplash.com/400x400/?#{query_three}")
+        #product_three.image.attach(io:downloaded_image_three, filename: "m-#{[product_three.flower_colour.colour_name, product_three.flower_type.type_name].join("-")}.jpg")
+        #sleep(10)
     end
 
 

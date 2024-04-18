@@ -95,8 +95,8 @@ class CheckoutController < ApplicationController
     def success
         #purchase was successful
         @provinces = Province.all
-        current_user_province = @provinces.where(id: current_user.province_id).first
-        user_cart = cart
+        @current_user_province = @provinces.where(id: current_user.province_id).first
+        @user_cart = cart
         @session = Stripe::Checkout::Session.retrieve(params[:session_id])
         @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
@@ -107,10 +107,10 @@ class CheckoutController < ApplicationController
             user_id: current_user.id
         )
 
-        user_cart.each do |product|
+        @user_cart.each do |product|
             OrderProduct.create(
                 product_quantity: 1,
-                product_total_price: product.price_cents + (current_user_province.gst_rate * product.price_cents) + (current_user_province.hst_rate * product.price_cents) + (current_user_province.pst_rate * product.price_cents),
+                product_total_price: product.price_cents + (@current_user_province.gst_rate * product.price_cents) + (@current_user_province.hst_rate * product.price_cents) + (@current_user_province.pst_rate * product.price_cents),
                 product_id: product.id,
                 order_id: current_order.id
             )

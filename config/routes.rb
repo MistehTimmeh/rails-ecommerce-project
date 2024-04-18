@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'users/user_page'
   get 'users/sign_up'
   get 'users/login'
   get 'sign_up/login'

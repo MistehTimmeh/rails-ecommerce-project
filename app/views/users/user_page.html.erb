@@ -1,0 +1,10 @@
+<% content_for(:html_title) {"Your Account Info"}%>
+
+<h1 class="title">Your Orders: </h1>
+<% @orders.each do |order| %>
+    <section class="section">
+        <%= render partial: 'order',
+             object: order,
+             locals: { show_link: false } %>
+    </section>
+<% end %>

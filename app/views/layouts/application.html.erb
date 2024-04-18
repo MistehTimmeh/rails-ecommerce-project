@@ -15,9 +15,7 @@
   <body>
     <%= render "layouts/menu" %>
     <section class="section">
-      <div class="container">
-        <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
-      </div>
+      <h1 class="title is-2">Violet Villa<%= " - " + yield(:html_title) if content_for?(:html_title)%></h1>
       <% if flash[:notice] %>
         <p>
           <%= flash[:notice] %>

@@ -1,4 +1,4 @@
-<% content_for(:html_title) {raw @product.flower_type.type_name} %>
+<% content_for(:html_title) {raw "#{@product.flower_colour.colour_name} #{@product.flower_type.type_name}".titleize} %>
 
 <div class="columns is-multiline">
     <% if @product.image.present? %>

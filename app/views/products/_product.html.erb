@@ -1,0 +1,20 @@
+<div class="column is-one-quarter">
+    <div>
+        <%= link_to "#{product.flower_colour.colour_name} #{product.flower_type.type_name}".titleize, product %>
+        <br>
+        <% if product.image.present? %>
+            <%= link_to (image_tag product.image, :style => "height: 50%; width: 50%;"), product %>
+        <% end %>
+        <p>Price: <%= number_to_currency(product.price_cents / 100) %></p>
+        <% if cart.include?(product) %>
+            <%= button_to cart_path(product), method: :delete do %>
+                Remove from cart
+            <% end %>
+        <% else %>
+            <%= form_with url: cart_index_path, method: :post do %>
+                <%= hidden_field_tag(:id, product.id) %>
+                <%= button_tag "Add to cart" %>
+            <% end %>
+        <% end %>
+    </div>
+</div>

@@ -1,27 +1,10 @@
-<p>All flowers:</p>
-<br>
+<% content_for(:html_title) {"All Flowers: "}%>
+
 <div class="columns is-multiline">
     <% @products.each do |f| %>
-    <div class="column is-one-quarter">
-        <div>
-            <%= link_to "#{f.flower_colour.colour_name} #{f.flower_type.type_name}".titleize, f %>
-            <br>
-            <% if f.image.present? %>
-                <%= link_to (image_tag f.image, :style => "height: 50%; width: 50%;"), f %>
-            <% end %>
-            <p>Price: <%= number_to_currency(f.price_cents / 100) %></p>
-            <% if cart.include?(f) %>
-                <%= button_to cart_path(f), method: :delete do %>
-                    Remove from cart
-                <% end %>
-            <% else %>
-                <%= form_with url: cart_index_path, method: :post do %>
-                    <%= hidden_field_tag(:id, f.id) %>
-                    <%= button_tag "Add to cart" %>
-                <% end %>
-            <% end %>
-        </div>
-    </div>
+        <%= render partial: 'product',
+                    object: f,
+                    locals: { show_link: false } %>
     <% end %>
 </div>
 <div class="container is-flex is-justify-content-center">
