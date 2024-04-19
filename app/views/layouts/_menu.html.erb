@@ -10,6 +10,14 @@
             <a class="navbar-item" href="/flower_colours">Flowers by Colour</a>
             <a class="navbar-item" href="/flower_types">Flowers by Type</a>
         </div>
+        <div class="navbar-search is-flex is-justify-content-space-around">
+            <%= form_with url: products_search_path, method: :get do |form| %>
+                <%= form.label :keyword, "Search: "%>
+                <%= form.text_field :keyword %>
+                <%= form.select :category, [["All Products", "products"],["All Types", "type_name"],["All Colours", "colour_name"]]%>
+                <%= form.submit "Search" %>
+            <% end %>
+        </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">

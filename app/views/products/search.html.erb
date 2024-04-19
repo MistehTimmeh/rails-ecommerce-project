@@ -1,0 +1,9 @@
+<% content_for(:html_title) {"All Flowers: "}%>
+
+<div class="columns is-multiline">
+    <% @products.each do |f| %>
+        <%= render partial: 'product',
+                    object: f,
+                    locals: { show_link: false } %>
+    <% end %>
+</div>
