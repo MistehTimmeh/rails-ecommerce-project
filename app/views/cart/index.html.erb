@@ -4,12 +4,9 @@
     <div class="columns">
         <div class="column is-two-thirds">
             <% cart.each do |p| %>
-                <section class="section">
-                    <h1 class="title"><%= "#{p.flower_colour.colour_name.capitalize} #{p.flower_type.type_name}" %></h1>
-                    <p><%= p.description %></p>
-                    <a class="is-pulled-right"><%= button_to 'Remove from Cart', cart_path(p), method: :delete %></a>
-                    <p><b>Price:</b> <%= number_to_currency(p.price_cents / 100) %></p>
-                </section>
+                <%= render partial: 'item',
+                            object: p,
+                            locals: { show_link: false } %>
             <% end %>
         </div>
         <div class="column is-one-third">

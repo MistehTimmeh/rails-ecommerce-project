@@ -1,3 +1,6 @@
-<section>
-    <p><%= "#{p.flower_colour.colour_name.capitalize} #{p.flower_type.type_name}"%></p>
+<section class="section">
+    <h1 class="title"><%= "#{item.flower_colour.colour_name.capitalize} #{item.flower_type.type_name}" %></h1>
+    <p><%= item.description %></p>
+    <a class="is-pulled-right"><%= button_to 'Remove from Cart', cart_path(item), method: :delete %></a>
+    <p><b>Price:</b> <%= number_to_currency(item.price_cents / 100) %></p>
 </section>
